@@ -1,5 +1,17 @@
 import crud_db_functions
-connection_string = r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=C:\Users\WaQQaS\Desktop\js\crud DB  MS access\cinema.accdb;'
+import os
+
+# Set the base directory
+base_dir = os.getcwd()
+
+# Set the relative path to the MS Access file
+file_path = 'db/cinema.accdb'
+
+# Join the base directory and the file path
+abs_path = os.path.join(base_dir, file_path)
+#con_str = 'Driver={Microsoft Access Driver (*.mdb, *.accdb)};DBQ='
+connection_string = 'Driver={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=' + \
+    abs_path
 print('''type 
         c for create enter new values
         r for read
