@@ -7,13 +7,13 @@ def create(c_str):
         cursor = conn.cursor()
         cursor.execute('select * from bookings')
 
-        i_d = int(
-            input("please enter the unique new ID for new entry of movie>>  "))
+        #i_d = int(input("please enter the unique new ID for new entry of movie>>  "))
         name = input("please enter name of movie>>  ")
         price = int(input("please enter price of movie>>  "))
-        myuserdata = (i_d, name, price)
+        myuserdata = (name, price)
+        stmt = f"INSERT INTO bookings (Movie_name, price) VALUES ('{name}', {price})"
 
-        cursor.execute('INSERT INTO bookings VALUES(?,?,?)', myuserdata)
+        cursor.execute(stmt)
         conn.commit()
         print("data created")
 
